@@ -100,7 +100,10 @@ pipeline {
                     //def machinePreparations = [:]
 
                     for (machine in machines) {
-                        echo "This is printing ${machine}"
+                        echo "This is creating ${machine}"
+                        mkdir ${machine}
+                        ls -ltr
+
                     }
                 }
             }
