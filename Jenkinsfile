@@ -97,7 +97,7 @@ pipeline {
                         
             steps {
                 withCredentials([usernamePassword(credentialsId: 'DATABRICK_TOKEN_DEV', passwordVariable: 'DB_TOKEN_PASSWORD', usernameVariable: 'DB_TOKEN_USER')]) {
-
+                    echo "Im outside script"
                     script {
                         def machines = ['agent-windows0', 'agent-windows1', 'agent-redhat0', 'agent-redhat1']
                         //def machinePreparations = [:]
