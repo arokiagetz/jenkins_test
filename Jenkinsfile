@@ -101,8 +101,8 @@ pipeline {
 
                     for (machine in machines) {
                         echo "This is creating ${machine}"
-                        mkdir ${machine}
-                        ls -ltr
+                        sh "mkdir ${machine}"
+                        sh "ls -ltr"
 
                     }
                 }
