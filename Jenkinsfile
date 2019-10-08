@@ -113,7 +113,7 @@ pipeline {
 
                         for (directory in directories) {
                             echo "This is creating ${directory}"
-                            sh "mkdir -p arokia/${directory}"
+                            sh "mkdir -p ./arokia1234/${directory}"
                             sh "ls -ltr"
                             echo "Printing the username ${DB_TOKEN_USER}"
                             echo "Printing the password ${DB_TOKEN_PASSWORD}"
