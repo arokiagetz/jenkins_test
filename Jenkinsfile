@@ -2,20 +2,20 @@
 
 pipeline {
 
-    environment {
-        // DB_CLI_IMAGE='databrickscli-python:3.7.4'
-        // POM_ARTIFACT_ID = readMavenPom().getArtifactId()
-        // POM_VERSION = readMavenPom().getVersion()
-        // APPLICATION_NAME="${env.POM_ARTIFACT_ID}"
-        // JAR_VERSION = "${env.POM_VERSION}-rc${env.BUILD_NUMBER}"
-        // scannerHome = tool 'SonarQubeScanner'
-    }
+    // environment {
+    //     // DB_CLI_IMAGE='databrickscli-python:3.7.4'
+    //     // POM_ARTIFACT_ID = readMavenPom().getArtifactId()
+    //     // POM_VERSION = readMavenPom().getVersion()
+    //     // APPLICATION_NAME="${env.POM_ARTIFACT_ID}"
+    //     // JAR_VERSION = "${env.POM_VERSION}-rc${env.BUILD_NUMBER}"
+    //     // scannerHome = tool 'SonarQubeScanner'
+    // }
 
-    parameters {
-        // string(name: 'MAVEN_REPO', description: 'Location of local repo', defaultValue: '/root/.m2/repository')
-        // string(name: 'MAVEN_IMAGE', description: 'Maven Version to build project', defaultValue: 'maven:3.6.2-jdk-8')
-        // string(name: 'JENKINS_NETWORK', defaultValue: '--network=jenkins-net', description: 'Custom network to run all container,so they can communicate with each other using service name')
-    }
+    // parameters {
+    //     // string(name: 'MAVEN_REPO', description: 'Location of local repo', defaultValue: '/root/.m2/repository')
+    //     // string(name: 'MAVEN_IMAGE', description: 'Maven Version to build project', defaultValue: 'maven:3.6.2-jdk-8')
+    //     // string(name: 'JENKINS_NETWORK', defaultValue: '--network=jenkins-net', description: 'Custom network to run all container,so they can communicate with each other using service name')
+    // }
 
     agent any
 
