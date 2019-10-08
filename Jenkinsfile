@@ -94,18 +94,24 @@ pipeline {
     agent any
     stages {
         stage('Preparing machines') {
+                        
             steps {
-                script {
-                    def machines = ['agent-windows0', 'agent-windows1', 'agent-redhat0', 'agent-redhat1']
-                    //def machinePreparations = [:]
+                withCredentials([usernamePassword(credentialsId: 'DATABRICK_TOKEN_DEV', passwordVariable: 'DB_TOKEN_PASSWORD', usernameVariable: 'DB_TOKEN_USER')]) {
 
-                    for (machine in machines) {
-                        echo "This is creating ${machine}"
-                        sh "mkdir ${machine}"
-                        sh "ls -ltr"
+                    script {
+                        def machines = ['agent-windows0', 'agent-windows1', 'agent-redhat0', 'agent-redhat1']
+                        //def machinePreparations = [:]
 
+                        for (machine in machines) {
+                            //echo "This is creating ${machine}"
+                            //sh "mkdir ${machine}"
+                            sh "ls -ltr"
+                            echo "Printing the username ${DB_TOKEN_USER}"
+                            echo "Printing the password ${DB_TOKEN_PASSWORD}"
+
+                        }
                     }
-                }
+                }    
             }
         }
     }
