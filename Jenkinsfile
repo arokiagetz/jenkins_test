@@ -98,12 +98,11 @@ pipeline {
         stage('Preparing machines') {
                         
             steps {
-                //echo "Im ouside credentials"
+                echo "Im ouside credentials"
                 withCredentials([usernamePassword(credentialsId: 'DATABRICK_TOKEN_DEV', passwordVariable: 'DB_TOKEN_PASSWORD', usernameVariable: 'DB_TOKEN_USER')]) {
-                    //echo "Im outside script"
+                    echo "Im outside script"
                     script {
-                        def directories = [
-                            'pipeline-status',
+                        def directories = ['pipeline-status',
                             'conversion',
                             'validation',
                             'statistics',
@@ -113,8 +112,8 @@ pipeline {
                             'sqlexecutoractivity']
 
                         for (directory in directories) {
-                            echo "This is creating ${machine}"
-                            sh "mkdir ${machine}"
+                            echo "This is creating ${directory}"
+                            sh "mkdir ${directory}"
                             sh "ls -ltr"
                             echo "Printing the username ${DB_TOKEN_USER}"
                             echo "Printing the password ${DB_TOKEN_PASSWORD}"
