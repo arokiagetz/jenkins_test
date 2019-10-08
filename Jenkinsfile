@@ -91,12 +91,18 @@
 //import jenkins.model.Jenkins
 
 pipeline {
+
+    parameters {
+        string(name: 'ENVIRONMENT', description: 'Location of local repo', defaultValue: 'USER')
+        //string(name: 'MAVEN_IMAGE', description: 'Maven Version to build project', defaultValue: 'maven:3.6.2-jdk-8')
+        //string(name: 'JENKINS_NETWORK', defaultValue: '--network=jenkins-net', description: 'Custom network to run all container,so they can communicate with each other using service name')
+    }
     agent any
     stages {
         stage('Preparing machines') {
                         
             steps {
-                withCredentials([usernamePassword(credentialsId: 'DATABRICK_TOKEN_DEV', passwordVariable: 'DB_TOKEN_PASSWORD', usernameVariable: 'DB_TOKEN_USER')]) {
+                withCredentials([usernamePassword(credentialsId: 'DATABRICK_TOKEN_DEV', passwordVariable: 'DB_TOKEN_PASSWORD', usernameVariable: 'DB_TOKEN_${ENVIRONMENT}')]) {
                     echo "Im outside script"
                     script {
                         def machines = ['agent-windows0', 'agent-windows1', 'agent-redhat0', 'agent-redhat1']
